@@ -1,8 +1,3 @@
-# SlideNotesTTS demo
-# Run from the SlideNotesTTS/ directory after installing VHS:
-#   brew install vhs
-#   vhs docs/demo.tape
-
 Output docs/demo.gif
 
 Set Shell "zsh"
