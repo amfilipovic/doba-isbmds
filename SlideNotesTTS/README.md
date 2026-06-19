@@ -17,11 +17,16 @@ During the first year of a doctoral programme it became clear that reading lectu
 
 `SlideNotesTTS` was built to automate that conversion. Given that `markitdown` already handles the extraction of structured text from PowerPoint files, the remaining problem was turning that output into clean, natural-sounding audio in a single command, across an entire deck, with control over what gets converted and in which voice.
 
+## Demo
+
+The `demo/` directory contains three sample presentations in American English, British English, and Croatian, along with pre-generated MP3 output. The audio files are a quick way to hear what the tool produces before running it on your own materials.
+
 ## Files
 
 1. `SlideNotesTTS.py`: The main script.
 2. `~/.slidenotes_tts`: Config file created automatically to store the last used voice.
 3. `<presentation>_audio/`: Output directory created alongside the source file, containing the generated MP3 files.
+4. `demo/`: Sample presentation files and pre-generated audio output in three languages.
 
 ## Dependencies
 
@@ -53,7 +58,7 @@ python3 SlideNotesTTS.py <file> [file ...] [options]
 
 | Option | Description |
 | --- | --- |
-| `--voice <name>` | Voice name (e.g. `en-US-JennyNeural`). Skips interactive selection entirely. |
+| `--voice <name>` | Use this voice and skip interactive selection. The name is validated against available voices at startup. Example: `en-US-JennyNeural`. |
 | `--lang <code>` | Pre-filter voices by language code (e.g. `en`, `hr`, `de`). |
 | `--region <code>` | Pre-filter voices by region code (e.g. `US`, `GB`, `AU`). |
 | `--mode <1\|2\|3>` | Content mode: `1` = slide text only, `2` = speaker notes only, `3` = both. |
