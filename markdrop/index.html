@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="paper">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>markdrop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="theme-bar">
+        <span id="theme-name">PAPER</span>
+        <div id="theme-dots">
+            <button class="dot active" data-theme="paper"  data-label="PAPER"  title="PAPER"  style="--c:#0969da"></button>
+            <button class="dot"        data-theme="cipher" data-label="CIPHER" title="CIPHER" style="--c:#3fb950"></button>
+            <button class="dot"        data-theme="ember"  data-label="EMBER"  title="EMBER"  style="--c:#ffb000"></button>
+            <button class="dot"        data-theme="frost"  data-label="FROST"  title="FROST"  style="--c:#0c7a9e"></button>
+            <button class="dot"        data-theme="void"   data-label="VOID"   title="VOID"   style="--c:#888888"></button>
+            <button class="dot"        data-theme="dusk"   data-label="DUSK"   title="DUSK"   style="--c:#c792ea"></button>
+            <button class="dot"        data-theme="sand"   data-label="SAND"   title="SAND"   style="--c:#7c5c3a"></button>
+            <button class="dot"        data-theme="rose"   data-label="ROSE"   title="ROSE"   style="--c:#c0364a"></button>
+            <button class="dot"        data-theme="ocean"  data-label="OCEAN"  title="OCEAN"  style="--c:#22d3ee"></button>
+            <button class="dot"        data-theme="mist"   data-label="MIST"   title="MIST"   style="--c:#4f46e5"></button>
+        </div>
+    </div>
+    <main>
+        <h1>markdrop</h1>
+        <p class="app-intro">Browser-based conversion of documents to Markdown using JavaScript libraries loaded from CDN on first visit. Drop one or more files onto the page and the Markdown appears immediately in result cards with per-file stats, copy, and save. Supports CSV, DOCX, HTML, JSON, PDF, plain text, PPTX, XLSX, and XML. When working with multiple files, use the toolbar to sort, filter, collapse, and select results for batch download as a ZIP archive. No installation, no server, no account.</p>
+        <div id="status" class="working">Loading libraries...</div>
+        <div id="drop-zone" class="disabled">
+            <span id="drop-label">Drop files here or click to browse</span>
+            <span id="drop-formats">csv · docx · html · json · pdf · pptx · txt · xlsx · xml</span>
+        </div>
+        <input type="file" id="file-input" multiple accept=".pptx,.docx,.pdf,.xlsx,.html,.htm,.csv,.txt,.json,.xml">
+        <div id="results-actions">
+            <div id="results-toolbar">
+                <div id="view-controls">
+                    <button id="collapse-all">Collapse all</button>
+                    <button id="expand-all">Expand all</button>
+                    <button id="select-all">Select all</button>
+                    <button id="deselect-all">Deselect all</button>
+                </div>
+                <div id="sort-buttons">
+                    <button class="sort-btn active" data-sort="newest">Newest</button>
+                    <button class="sort-btn"        data-sort="asc"   >A-Z</button>
+                    <button class="sort-btn"        data-sort="oldest">Oldest</button>
+                    <button class="sort-btn"        data-sort="desc"  >Z-A</button>
+                </div>
+                <div id="filter-group">
+                    <input type="text" id="filter-input" placeholder="filter files..." autocomplete="off">
+                    <div id="type-filters"></div>
+                </div>
+            </div>
+            <div id="results-buttons">
+                <button id="download-selected">Download selected (0)</button>
+                <button id="remove-all">Remove all</button>
+            </div>
+        </div>
+        <div id="results-summary"></div>
+        <div id="results"></div>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>
