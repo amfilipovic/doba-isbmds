@@ -8,7 +8,7 @@ Set Theme "TokyoNight"
 Set Padding 24
 Set TypingSpeed 40ms
 
-Type "python3 SlideNotesTTS.py demo_presentation_en-US.md --voice en-US-AndrewNeural --mode 3 --dry-run"
+Type "python3 SlideNotesTTS.py demo/demo_presentation_en-US.md --voice en-US-AndrewNeural --mode 3 --dry-run"
 Sleep 500ms
 Enter
 Sleep 12s
