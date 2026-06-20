@@ -4,7 +4,7 @@
 
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 ![Platform](https://img.shields.io/badge/platform-browser-lightgrey.svg)
-![Dependencies](https://img.shields.io/badge/dependencies-none-blue.svg)
+![Dependencies](https://img.shields.io/badge/dependencies-CDN-blue.svg)
 
 ## Overview
 
@@ -20,12 +20,6 @@ That assumption does not hold for everyone. Conversations with fellow students m
 
 `markdrop` is the answer to that. No installation, no environment, no command line. Open the page, drop the files, copy the result. The conversion runs entirely in the browser, so there is nothing to set up and nothing to share with a server.
 
-## Files
-
-1. `index.html`: The page structure, theme bar, drop zone, and results area.
-2. `style.css`: All ten colour themes and layout.
-3. `script.js`: File reading, format detection, conversion logic, and UI behaviour.
-
 ## Demo
 
 The `demo/` directory contains sample input files and their markdrop output.
@@ -37,6 +31,12 @@ The `demo/` directory contains sample input files and their markdrop output.
 | [demo-presentation.pptx](demo/demo-presentation.pptx) | [demo-presentation.md](demo/demo-presentation.md) |
 | [demo-spreadsheet.xlsx](demo/demo-spreadsheet.xlsx) | [demo-spreadsheet.md](demo/demo-spreadsheet.md) |
 | [demo-text.txt](demo/demo-text.txt) | [demo-text.md](demo/demo-text.md) |
+
+## Usage
+
+Open `index.html` in a browser, or visit the hosted version via GitHub Pages. On first load the page fetches the required JavaScript libraries from CDN (a few seconds). Once the status line reads `Ready`, drag one or more files onto the drop zone, or click to open a file picker. Each file is converted immediately and appears as a result card below.
+
+Multiple files can be dropped at once and are processed in sequence. When two or more results are present, a toolbar appears above them with controls for sorting (by date added or filename), collapsing and expanding cards, filtering by filename or file type, and selecting cards for batch download as a ZIP archive. A summary line shows the total file count, line count, word count, and size across all converted files, plus slide count for PPTX and sheet count for XLSX when present.
 
 ## Supported formats
 
@@ -52,17 +52,30 @@ The `demo/` directory contains sample input files and their markdrop output.
 | Word | `.docx` | mammoth.js |
 | XML | `.xml` | Native, wrapped in fenced code block |
 
-## Usage
-
-Open `index.html` in a browser, or visit the hosted version via GitHub Pages. On first load the page fetches the required JavaScript libraries from CDN (a few seconds). Once the status line reads `Ready`, drag one or more files onto the drop zone, or click to open a file picker. Each file is converted immediately and appears as a result card below.
-
-Multiple files can be dropped at once and are processed in sequence. When two or more results are present, a toolbar appears above them with controls for sorting (by date added or filename), collapsing and expanding cards, filtering by filename or file type, and selecting cards for batch download as a ZIP archive. A summary line shows the total file count, line count, word count, and size across all converted files, plus slide count for PPTX and sheet count for XLSX when present.
-
 ## Output
 
 Each converted file appears as a result card showing the filename, a stats line with line count, word count, and file size, and a textarea with the Markdown output. Cards can be collapsed to a single summary row. Use `Copy` to copy to clipboard or `Save .md` to download with the original filename and a `.md` extension. Selected cards can be downloaded together as a timestamped ZIP file.
 
 The output format depends on the file type: Word documents and HTML pages become standard Markdown with headings, lists, and inline formatting preserved. Spreadsheets produce Markdown tables, one per sheet. CSV files are treated the same way, with the first row as the header. PowerPoint slides are extracted with slide numbers, titles, body text, and speaker notes. JSON and XML are wrapped in fenced code blocks. Plain text passes through as-is.
+
+## Files
+
+1. `index.html`: The page structure, theme bar, drop zone, and results area.
+2. `style.css`: All ten colour themes and layout.
+3. `script.js`: File reading, format detection, conversion logic, and UI behaviour.
+4. `demo/`: Sample input files and their converted Markdown output.
+
+## Dependencies
+
+| Library | Version | Purpose |
+| --- | --- | --- |
+| [mammoth.js](https://github.com/mwilliamson/mammoth.js) | 1.6.0 | DOCX to HTML conversion |
+| [pdf.js](https://mozilla.github.io/pdf.js/) | 3.11.174 | PDF text extraction |
+| [SheetJS](https://sheetjs.com) | 0.18.5 | XLSX parsing |
+| [Turndown](https://github.com/mixmark-io/turndown) | 7.1.2 | HTML to Markdown conversion |
+| [JSZip](https://stuk.github.io/jszip/) | 3.10.1 | ZIP file creation and PPTX parsing |
+
+All libraries are loaded from CDN on first use. No installation required.
 
 ## Privacy
 
