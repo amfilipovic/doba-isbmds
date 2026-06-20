@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="paper">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>md2pptx</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="theme-bar">
+        <span id="theme-name">PAPER</span>
+        <div id="theme-dots">
+            <button class="dot active" data-theme="paper"  data-label="PAPER"  title="PAPER"  style="--c:#0969da"></button>
+            <button class="dot"        data-theme="cipher" data-label="CIPHER" title="CIPHER" style="--c:#3fb950"></button>
+            <button class="dot"        data-theme="ember"  data-label="EMBER"  title="EMBER"  style="--c:#ffb000"></button>
+            <button class="dot"        data-theme="frost"  data-label="FROST"  title="FROST"  style="--c:#0c7a9e"></button>
+            <button class="dot"        data-theme="void"   data-label="VOID"   title="VOID"   style="--c:#888888"></button>
+            <button class="dot"        data-theme="dusk"   data-label="DUSK"   title="DUSK"   style="--c:#c792ea"></button>
+            <button class="dot"        data-theme="sand"   data-label="SAND"   title="SAND"   style="--c:#7c5c3a"></button>
+            <button class="dot"        data-theme="rose"   data-label="ROSE"   title="ROSE"   style="--c:#c0364a"></button>
+            <button class="dot"        data-theme="ocean"  data-label="OCEAN"  title="OCEAN"  style="--c:#22d3ee"></button>
+            <button class="dot"        data-theme="mist"   data-label="MIST"   title="MIST"   style="--c:#4f46e5"></button>
+        </div>
+    </div>
+    <main>
+        <h1>md2pptx<span id="h1-count"></span></h1>
+        <p class="app-intro">Browser-based Markdown to PowerPoint converter. Write in the editor or load a <code>.md</code> file (drag and drop supported). Split slides with <code>---</code> or <code>#</code>/<code>##</code> headings. Bullets (<code>-</code>), numbered lists (<code>1.</code>), bold (<code>**text**</code>), italic (<code>*text*</code>), and fenced code blocks are supported. Blockquotes and <code>### Notes:</code> sections become speaker notes. The preview updates live, tracks your cursor, and reflects the selected PPTX colour scheme (Theme, Light, Dark, Minimal). The output filename auto-fills from the first slide title. Press <code>Cmd/Ctrl+Enter</code> to convert. No installation, no server, no account.</p>
+        <div id="status" class="working">Loading libraries...</div>
+        <div id="workspace">
+            <div id="editor-panel">
+                <div id="toolbar">
+                    <div class="toolbar-group">
+                        <button class="tool-btn" data-action="h1" title="Heading 1" aria-label="Insert heading 1">H1</button>
+                        <button class="tool-btn" data-action="h2" title="Heading 2" aria-label="Insert heading 2">H2</button>
+                        <button class="tool-btn" data-action="h3" title="Heading 3" aria-label="Insert heading 3">H3</button>
+                    </div>
+                    <div class="toolbar-group">
+                        <button class="tool-btn" data-action="bold"   title="Bold"   aria-label="Bold"><b>B</b></button>
+                        <button class="tool-btn" data-action="italic" title="Italic" aria-label="Italic"><i>I</i></button>
+                    </div>
+                    <div class="toolbar-group">
+                        <button class="tool-btn" data-action="break"    title="Slide break"          aria-label="Insert slide break">---</button>
+                        <button class="tool-btn" data-action="bullet"   title="Bullet point"         aria-label="Insert bullet point">&#8226;</button>
+                        <button class="tool-btn" data-action="numbered" title="Numbered list"        aria-label="Insert numbered list item">1.</button>
+                        <button class="tool-btn" data-action="code"     title="Code block"           aria-label="Insert code block">&lt;/&gt;</button>
+                        <button class="tool-btn" data-action="note"     title="Speaker note"         aria-label="Insert speaker note">note</button>
+                    </div>
+                    <div class="toolbar-group" id="toolbar-file">
+                        <button class="tool-btn" id="load-btn">Load</button>
+                        <button class="tool-btn" id="clear-btn">Clear</button>
+                        <div id="help-wrap">
+                            <button class="tool-btn" id="help-btn" title="Syntax reference" aria-label="Syntax reference">?</button>
+                            <div id="help-popover" hidden>
+                                <div class="help-row"><code>#</code><span>Slide title (H1)</span></div>
+                                <div class="help-row"><code>##</code><span>Slide title (H2), auto-splits</span></div>
+                                <div class="help-row"><code>---</code><span>Explicit slide break</span></div>
+                                <div class="help-row"><code>- item</code><span>Bullet point</span></div>
+                                <div class="help-row"><code>1. item</code><span>Numbered list</span></div>
+                                <div class="help-row"><code>**text**</code><span>Bold</span></div>
+                                <div class="help-row"><code>*text*</code><span>Italic</span></div>
+                                <div class="help-row"><code>```</code><span>Code block</span></div>
+                                <div class="help-row"><code>&gt; text</code><span>Speaker note</span></div>
+                                <div class="help-row"><code>### Notes:</code><span>Speaker notes section</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <textarea id="editor" autocomplete="off" name="editor" spellcheck="false" placeholder="# Slide title
+
+- Bullet point
+- **Bold** or *italic* text
+1. Numbered item
+
+> Speaker note (shown in presenter view)
+
+---
+
+## Second slide
+
+Paragraph text.
+Use --- to add more slides."></textarea>
+                <input type="file" id="file-input" accept=".md,.txt">
+                <div id="editor-footer">
+                    <input type="text" id="filename-input" placeholder="presentation" autocomplete="off" spellcheck="false" name="filename" title="Output filename (without extension)">
+                    <div id="pptx-themes">
+                        <button class="pptx-theme-btn active" data-pptx-theme="theme">Theme</button>
+                        <button class="pptx-theme-btn"        data-pptx-theme="light">Light</button>
+                        <button class="pptx-theme-btn"        data-pptx-theme="dark">Dark</button>
+                        <button class="pptx-theme-btn"        data-pptx-theme="minimal">Minimal</button>
+                    </div>
+                    <button id="convert-btn" class="btn-accent" disabled>Convert to PPTX</button>
+                    <span id="editor-stats"></span>
+                </div>
+            </div>
+            <div id="preview-panel">
+                <div id="preview" data-pptx-theme="theme"></div>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -13,6 +13,7 @@ Tools vary in language and form depending on the task at hand: Python scripts, R
 | Tool | Language | Description |
 | --- | --- | --- |
 | [markdrop](markdrop/) | HTML/CSS/JS | Browser-based document to Markdown converter. Drop a file and copy the result. Supports PPTX, DOCX, PDF, XLSX, HTML, CSV, JSON, XML, and plain text. No installation or server required. |
+| [md2pptx](md2pptx/) | HTML/CSS/JS | Browser-based Markdown to PowerPoint converter. Write or load a Markdown file, preview slides live, and export as PPTX. No installation or server required. |
 | [SlideNotesTTS](SlideNotesTTS/) | Python | Converts presentation Markdown files produced by markitdown into MP3 audio using Microsoft Edge TTS. Supports slide text, speaker notes, or both, with interactive voice selection and parallel generation. |
 
 ## Author
