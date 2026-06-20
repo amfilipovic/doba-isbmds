@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "concepts": [
+    { "terms": "DigComp, RISE framework, digital competence framework, digital skills framework", "connector": null },
+    { "terms": "assessment, measurement, validation", "connector": "AND" },
+    { "terms": "computational thinking", "connector": "NOT" }
+  ],
+  "filters": {
+    "yearFrom": "2013",
+    "yearTo": "2025",
+    "type": "all",
+    "perPage": "25"
+  }
+}

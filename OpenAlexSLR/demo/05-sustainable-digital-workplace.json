@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "concepts": [
+    { "terms": "sustainable work, work sustainability, sustainable employment, sustainable career", "connector": null },
+    { "terms": "digital workplace, remote work, hybrid work, telework, digital work", "connector": "AND" }
+  ],
+  "filters": {
+    "yearFrom": "2020",
+    "yearTo": "2025",
+    "type": "article",
+    "perPage": "100"
+  }
+}

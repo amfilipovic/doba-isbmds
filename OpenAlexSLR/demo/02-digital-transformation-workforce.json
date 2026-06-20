@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "concepts": [
+    { "terms": "digital transformation, digitalisation, digitalization", "connector": null },
+    { "terms": "workforce, employees, human resources", "connector": "AND" },
+    { "terms": "sustainability, sustainable development, quality of work life", "connector": "AND" }
+  ],
+  "filters": {
+    "yearFrom": "2019",
+    "yearTo": "2025",
+    "type": "article",
+    "perPage": "50"
+  }
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="paper">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenAlexSLR</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="theme-bar">
+        <span id="theme-name">PAPER</span>
+        <div id="theme-dots">
+            <button class="dot active" data-theme="paper"  data-label="PAPER"  title="PAPER"  style="--c:#0969da"></button>
+            <button class="dot"        data-theme="cipher" data-label="CIPHER" title="CIPHER" style="--c:#3fb950"></button>
+            <button class="dot"        data-theme="ember"  data-label="EMBER"  title="EMBER"  style="--c:#ffb000"></button>
+            <button class="dot"        data-theme="frost"  data-label="FROST"  title="FROST"  style="--c:#0c7a9e"></button>
+            <button class="dot"        data-theme="void"   data-label="VOID"   title="VOID"   style="--c:#888888"></button>
+            <button class="dot"        data-theme="dusk"   data-label="DUSK"   title="DUSK"   style="--c:#c792ea"></button>
+            <button class="dot"        data-theme="sand"   data-label="SAND"   title="SAND"   style="--c:#7c5c3a"></button>
+            <button class="dot"        data-theme="rose"   data-label="ROSE"   title="ROSE"   style="--c:#c0364a"></button>
+            <button class="dot"        data-theme="ocean"  data-label="OCEAN"  title="OCEAN"  style="--c:#22d3ee"></button>
+            <button class="dot"        data-theme="mist"   data-label="MIST"   title="MIST"   style="--c:#4f46e5"></button>
+        </div>
+    </div>
+    <main>
+        <h1>OpenAlexSLR<span id="h1-count"></span></h1>
+        <p class="app-intro">A query builder for systematic literature reviews, drawing on the <a href="https://openalex.org" target="_blank" rel="noopener">OpenAlex</a> open catalogue of over 317 million academic works. Compose a Boolean search from multiple concept groups using AND, OR, and NOT connectors, refine by year and publication type, and export any selection to CSV or RIS for your reference manager. Filter and select from loaded results before exporting, or load additional pages as needed. Queries can be saved as JSON files and reloaded across sessions for reproducible searches. Nothing to install, no account or API key needed.</p>
+        <div id="workspace">
+            <div id="query-panel">
+                <div class="panel-label">Query</div>
+                <div id="concepts"></div>
+                <button id="add-concept-btn">+ Add concept</button>
+                <div id="filters">
+                    <div class="filter-row">
+                        <span class="filter-label">Year</span>
+                        <input type="number" id="year-from" placeholder="from" min="1900" max="2099" autocomplete="off">
+                        <span class="filter-sep">to</span>
+                        <input type="number" id="year-to" placeholder="to" min="1900" max="2099" autocomplete="off">
+                    </div>
+                    <div class="filter-row">
+                        <span class="filter-label">Type</span>
+                        <select id="pub-type">
+                            <option value="all">All types</option>
+                            <option value="article">Journal article</option>
+                            <option value="book-chapter">Book chapter</option>
+                            <option value="preprint">Preprint</option>
+                            <option value="dissertation">Dissertation</option>
+                            <option value="book">Book</option>
+                        </select>
+                    </div>
+                    <div class="filter-row">
+                        <span class="filter-label">Per page</span>
+                        <select id="per-page">
+                            <option value="10">10</option>
+                            <option value="25" selected>25</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                            <option value="200">200</option>
+                        </select>
+                    </div>
+                </div>
+                <button id="search-btn" class="btn-accent" title="Cmd/Ctrl+Enter">Search</button>
+                <div class="search-hint"><kbd>Cmd/Ctrl</kbd>+<kbd>Enter</kbd> to search</div>
+                <div id="status"></div>
+                <div id="query-preview"></div>
+                <div id="query-io">
+                    <button id="save-query-btn" disabled>Save query</button>
+                    <label id="load-query-label" title="Load a previously saved query JSON file">Load query<input type="file" id="load-query-input" accept=".json"></label>
+                </div>
+            </div>
+            <div id="results-panel">
+                <div id="results-toolbar">
+                    <input type="text" id="filter-input" placeholder="Filter loaded results…" aria-label="Filter loaded results" autocomplete="off" disabled>
+                    <span id="results-count"></span>
+                    <div id="results-actions">
+                        <button id="select-all-btn" disabled>Select all</button>
+                        <button id="export-csv-btn" disabled>CSV</button>
+                        <button id="export-ris-btn" disabled>RIS</button>
+                        <button id="reset-btn" title="Clear results and start a new search">Reset</button>
+                    </div>
+                </div>
+                <div id="results"></div>
+                <div id="load-btns">
+                    <button id="load-more-btn" hidden>Load more</button>
+                    <button id="load-all-btn"  hidden title="Fetches all remaining pages at once. Use with caution on large result sets.">Load all</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>

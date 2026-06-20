@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "concepts": [
+    { "terms": "digital competence, digital skills, digital literacy", "connector": null },
+    { "terms": "sustainable work outcomes, work performance, employee wellbeing, work engagement", "connector": "AND" }
+  ],
+  "filters": {
+    "yearFrom": "2018",
+    "yearTo": "2025",
+    "type": "article",
+    "perPage": "25"
+  }
+}

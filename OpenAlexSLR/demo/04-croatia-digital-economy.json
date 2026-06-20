@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "concepts": [
+    { "terms": "Croatia, Croatian", "connector": null },
+    { "terms": "digital transformation, digital economy, digitalization", "connector": "AND" }
+  ],
+  "filters": {
+    "yearFrom": "2015",
+    "yearTo": "2025",
+    "type": "article",
+    "perPage": "50"
+  }
+}
