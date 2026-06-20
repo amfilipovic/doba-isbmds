@@ -21,27 +21,6 @@ During the first year of a doctoral programme it became clear that reading lectu
 
 The `demo/` directory contains three sample presentations in American English, British English, and Croatian, along with pre-generated MP3 output. The audio files are a quick way to hear what the tool produces before running it on your own materials.
 
-## Files
-
-1. `SlideNotesTTS.py`: The main script.
-2. `~/.slidenotes_tts`: Config file created automatically to store the last used voice.
-3. `<presentation>_audio/`: Output directory created alongside the source file, containing the generated MP3 files.
-4. `demo/`: Sample presentation files and pre-generated audio output in three languages.
-
-## Dependencies
-
-- Python 3.8 or later.
-- [edge-tts](https://github.com/rany2/edge-tts): Microsoft Edge TTS engine.
-- [rich](https://github.com/Textualize/rich): Terminal UI.
-
-Install dependencies:
-
-```sh
-pip3 install edge-tts rich
-```
-
-The source file must be a Markdown file produced by `markitdown` from a PowerPoint presentation. The tool expects `<!-- Slide number: N -->` markers and optional `### Notes:` sections within each slide block.
-
 ## Usage
 
 ```text
@@ -166,6 +145,27 @@ Because filenames are stable across runs, re-running with the same voice skips f
 ```
 
 A per-file summary is printed on completion, and a combined total summary is shown when processing multiple files.
+
+## Files
+
+1. `SlideNotesTTS.py`: The main script.
+2. `~/.slidenotes_tts`: Config file created automatically to store the last used voice.
+3. `<presentation>_audio/`: Output directory created alongside the source file, containing the generated MP3 files.
+4. `demo/`: Sample presentation files and pre-generated audio output in three languages.
+
+## Dependencies
+
+- Python 3.8 or later.
+- [edge-tts](https://github.com/rany2/edge-tts): Microsoft Edge TTS engine.
+- [rich](https://github.com/Textualize/rich): Terminal UI.
+
+Install dependencies:
+
+```sh
+pip3 install edge-tts rich
+```
+
+The source file must be a Markdown file produced by `markitdown` from a PowerPoint presentation. The tool expects `<!-- Slide number: N -->` markers and optional `### Notes:` sections within each slide block.
 
 ## Notes
 
