@@ -13,7 +13,7 @@ Tools vary in language and form depending on the task at hand: Python scripts, R
 | Tool | Language | Description |
 | --- | --- | --- |
 | [doikit](doikit/) | Go | Command-line tool for working with DOIs. Fetches metadata from CrossRef and formats citations in APA 7, Chicago 17, or Harvard style. Verifies DOIs resolve and reports HTTP status, response time, and final URL. |
-| [litmus](litmus/) | Python | Command-line tool for processing systematic literature review CSV exports from OpenAlex. Merges and deduplicates query results, filters by year and keyword, runs corpus statistics, supports interactive screening, and detects fuzzy duplicates. |
+| [litmus](litmus/) | Python | Command-line tool for processing systematic literature review CSV exports from OpenAlexSLR. Merges and deduplicates query results, filters by year and keyword, runs corpus statistics, supports interactive screening, and detects fuzzy duplicates. |
 | [markdrop](markdrop/) | HTML/CSS/JS | Browser-based document to Markdown converter. Drop a file and copy the result. Supports PPTX, DOCX, PDF, XLSX, HTML, CSV, JSON, XML, and plain text. No installation or server required. |
 | [md2pptx](md2pptx/) | HTML/CSS/JS | Browser-based Markdown to PowerPoint converter. Write or load a Markdown file, preview slides live, and export as PPTX. No installation or server required. |
 | [OpenAlexSLR](OpenAlexSLR/) | HTML/CSS/JS | Browser-based query builder for systematic literature reviews, drawing on the OpenAlex catalogue of over 317 million academic works. Compose Boolean searches, filter and select results, and export to CSV or RIS. No installation or server required. |
