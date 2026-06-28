@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "concepts": [
+    { "terms": "public administration, education, ICT industry", "connector": null },
+    { "terms": "NIS2, cybersecurity, digital competence, digital capability", "connector": "AND" },
+    { "terms": "Croatia, Croatian", "connector": "AND" }
+  ],
+  "filters": {
+    "yearFrom": "2020",
+    "yearTo": "2026",
+    "type": "article",
+    "perPage": "25"
+  }
+}

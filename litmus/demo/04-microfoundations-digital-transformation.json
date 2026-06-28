@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "concepts": [
+    { "terms": "microfoundations, micro-foundations, sociotechnical micro foundations", "connector": null },
+    { "terms": "digital transformation, organizational capability", "connector": "AND" },
+    { "terms": "individual level, employee capabilities, individual competence", "connector": "AND" }
+  ],
+  "filters": {
+    "yearFrom": "2019",
+    "yearTo": "2026",
+    "type": "article",
+    "perPage": "50"
+  }
+}

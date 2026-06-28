@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "concepts": [
+    { "terms": "digital resilience, digital innovation, digital security, digital education", "connector": null },
+    { "terms": "Job Demands Resources, JD-R, Conservation of Resources, personal resources", "connector": "AND" },
+    { "terms": "work engagement, job performance", "connector": "AND" }
+  ],
+  "filters": {
+    "yearFrom": "2018",
+    "yearTo": "2026",
+    "type": "article",
+    "perPage": "50"
+  }
+}

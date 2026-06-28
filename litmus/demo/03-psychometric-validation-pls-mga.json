@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "concepts": [
+    { "terms": "UWES-9, IWPQ, work engagement, individual work performance", "connector": null },
+    { "terms": "PLS-SEM, measurement invariance, MICOM, multi-group analysis, PLS-MGA", "connector": "AND" }
+  ],
+  "filters": {
+    "yearFrom": "2015",
+    "yearTo": "2026",
+    "type": "all",
+    "perPage": "50"
+  }
+}
